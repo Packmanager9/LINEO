@@ -2670,8 +2670,13 @@ class ThreeDeeObject {
         FLEX_engine = canvas.getBoundingClientRect();
         XS_engine = e.clientX - FLEX_engine.left;
         YS_engine = e.clientY - FLEX_engine.top;
-        TIP_engine.x = XS_engine
-        TIP_engine.y = YS_engine
+        if(scale == 1){
+                TIP_engine.x = XS_engine*3
+                TIP_engine.y = YS_engine*3
+            }else{
+                TIP_engine.x = XS_engine
+                TIP_engine.y = YS_engine
+            }
         TIP_engine.body = TIP_engine
 
 
