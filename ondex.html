@@ -2432,6 +2432,15 @@ class ThreeDeeObject {
 
 
     }
+        spin1(){
+            
+
+            this.board.spin1()
+        }
+        spin2(){
+            
+            this.board.spin2()
+        }
     export2() {
         let out = ''
 
@@ -2680,10 +2689,10 @@ class ThreeDeeObject {
             }
             TIP_engine.body = TIP_engine
             if(spin1.isPointInside(TIP_engine)){
-                b.spin1()
+                b.board.spin1()
             }
             if(spin2.isPointInside(TIP_engine)){
-                b.spin2()
+                b.board.spin2()
             }
             if(scaler.isPointInside(TIP_engine)){
                 scale*=-1
@@ -2777,6 +2786,7 @@ class ThreeDeeObject {
                     clicked = 1
                     break
                 }
+                break
             }
         }
         // }else{
