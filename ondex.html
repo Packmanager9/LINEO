@@ -1010,6 +1010,12 @@
         return endstring + (g | (b << 8) | (r << 16)).toString(16)
 
     }
+    subdraw() {
+        // let circ = new Circle((this.x*120)+350, (this.y*120)+350, 10, this.valueShift(100-(255*(this.z*2/3))))
+
+        this.sy = (this.y * 120) + 350
+        this.sx = (this.x * 120) + 350
+    }
     draw() {
         // let circ = new Circle((this.x*120)+350, (this.y*120)+350, 10, this.valueShift(100-(255*(this.z*2/3))))
 
@@ -1022,8 +1028,8 @@
             canvas_context.beginPath();
             canvas_context.arc((this.x * 120) + 350, (this.y * 120) + 350, r, 0, (Math.PI * 2), true)
             canvas_context.fillStyle = this.valueShift(255 - (255 * ((Math.sqrt(Math.abs(this.z)) * Math.sign(this.z)) * 5 / 3)))
-            canvas_context.strokeStyle = `rgb(${this.r},${this.g},${this.b})`
-            canvas_context.fillStyle = `rgb(${this.r},${this.g},${this.b})`
+            canvas_context.strokeStyle = this.valueShift(255 - (255 * ((Math.sqrt(Math.abs(this.z)) * Math.sign(this.z)) * 5 / 3)))
+            canvas_context.fillStyle = this.valueShift(255 - (255 * ((Math.sqrt(Math.abs(this.z)) * Math.sign(this.z)) * 5 / 3)))
             canvas_context.lineWidth = 4
             canvas_context.stroke()
             // if (this.marked == 1) {
@@ -1049,8 +1055,8 @@
             let r = 5 + (Math.max(-5, -this.z * 1))
             canvas_context.arc((this.x * 120) + 350, (this.y * 120) + 350, r, 0, (Math.PI * 2), true)
             canvas_context.fillStyle = this.valueShift(255 - (255 * ((Math.sqrt(Math.abs(this.z)) * Math.sign(this.z)) * 5 / 3)))
-            canvas_context.strokeStyle = `rgb(${this.r},${this.g},${this.b})`
-            canvas_context.fillStyle = `rgb(${this.r},${this.g},${this.b})`
+            canvas_context.strokeStyle = this.valueShift(255 - (255 * ((Math.sqrt(Math.abs(this.z)) * Math.sign(this.z)) * 5 / 3)))
+            canvas_context.fillStyle =this.valueShift(255 - (255 * ((Math.sqrt(Math.abs(this.z)) * Math.sign(this.z)) * 5 / 3)))
             canvas_context.lineWidth = 4
             canvas_context.stroke()
             // if (this.marked == 1) {
@@ -2518,6 +2524,7 @@ class ThreeDeeObject {
             // if(t < this.dots.length - (this.dots.length *.3 )){
 
             // }
+            this.dots[t].subdraw()
         }
 
         this.turns = [0,0]
